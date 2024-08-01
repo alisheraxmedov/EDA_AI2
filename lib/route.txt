@@ -1,0 +1,99 @@
+1) {basic.dart} faylida shimmer effekti va gate fayl joylashgan
+   Shu qismdan dasturga kirish boshlanadi. Va bu yerda ya'ni GateScreen da 
+   HomePage yoki So'rovnama pagelarga o'tish amalga oshiriladi !!!
+
+2) dash_chat paketi
+
+Map<String, dynamic> calculateCalories(double weight, double height, int age, String gender, String goal, double targetChangeKg, int weeks, String activityLevel) {
+  // BMR Calculation
+  double bmr;
+  if (gender == 'male') {
+    bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+  } else {
+    bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+  }
+
+  // Activity level multiplier
+  Map<String, double> activityMultipliers = {
+    'sedentary': 1.2,
+    'lightly active': 1.375,
+    'moderately active': 1.55,
+    'very active': 1.725,
+    'super active': 1.9
+  };
+  double tdee = bmr * activityMultipliers[activityLevel]!;
+
+  // Adjust TDEE for weight goal
+  double tdeeGoal;
+  if (goal == 'lose') {
+    tdeeGoal = tdee - (500 * targetChangeKg / weeks);
+  } else if (goal == 'gain') {
+    tdeeGoal = tdee + (500 * targetChangeKg / weeks);
+  } else {  // maintain
+    tdeeGoal = tdee;
+  }
+
+  // Macronutrient distribution
+  double proteinGramsPerKg = 1.0;  // average requirement
+  double proteinCalories = proteinGramsPerKg * weight * 4;
+  double fatCalories = tdeeGoal * 0.25;  // 25% of total calories
+  double carbCalories = tdeeGoal - proteinCalories - fatCalories;
+
+  double proteinGrams = proteinCalories / 4;
+  double fatGrams = fatCalories / 9;
+  double carbGrams = carbCalories / 4;
+
+  return {
+    'calories': tdeeGoal,
+    'protein': proteinGrams,
+    'fat': fatGrams,
+    'carbs': carbGrams
+  };
+}
+
+void main() {
+  Map<String, dynamic> userData = {
+    'weight': 70.0,  // in kg
+    'height': 175.0,  // in cm
+    'age': 25,  // in years
+    'gender': 'male',
+    'goal': 'lose',
+    'targetChangeKg': 5.0,  // kg to lose
+    'weeks': 10,  // in weeks
+    'activityLevel': 'moderately active'
+  };
+
+  Map<String, dynamic> result = calculateCalories(
+    userData['weight'], 
+    userData['height'], 
+    userData['age'], 
+    userData['gender'], 
+    userData['goal'], 
+    userData['targetChangeKg'], 
+    userData['weeks'], 
+    userData['activityLevel']
+  );
+
+  print(result);
+}
+
+
+
+final model = GenerativeModel(model: "gemini-pro-vision", apiKey: apiKey);
+input_prompt = """
+You are an expert in nutritionist where you need to see the food items from the image
+and calculate the total calories, also provide the details of every food item with calorie intake
+in the format below:
+
+1. Item 1 - no of calories
+2. Item 2 - no of calories
+----
+----
+"""
+        final response = await model.generateContent([
+          Content.text(input_prompt),
+          Content.data("image/png", imageBytes),
+        ]);
+
+//===========================================================
+clientexception with socketexception: Failed host lookup:'generativelanguage.googleapis.com'(Os Error:No address associated with hostname, erno=7), uri=https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent

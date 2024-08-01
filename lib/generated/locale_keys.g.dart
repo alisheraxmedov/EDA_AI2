@@ -1,0 +1,64 @@
+// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+
+abstract class  LocaleKeys {
+  static const select = 'select';
+  static const reason = 'reason';
+  static const back = 'back';
+  static const previos = 'previos';
+  static const done = 'done';
+  static const train_time = 'train_time';
+  static const goal = 'goal';
+  static const weight_gain = 'weight_gain';
+  static const weight_save = 'weight_save';
+  static const weight_lose = 'weight_lose';
+  static const weight_and_tall = 'weight_and_tall';
+  static const weight = 'weight';
+  static const kg = 'kg';
+  static const sm = 'sm';
+  static const tall = 'tall';
+  static const dob = 'dob';
+  static const save = 'save';
+  static const select_dob = 'select_dob';
+  static const not_found = 'not_found';
+  static const near_eat = 'near_eat';
+  static const remaining_calory = 'remaining_calory';
+  static const fat = 'fat';
+  static const protein = 'protein';
+  static const carb = 'carb';
+  static const remain = 'remain';
+  static const nodata_at_the_moment = 'nodata_at_the_moment';
+  static const calory = '_calory';
+  static const g = '_g';
+  static const not_available = 'not_available';
+  static const log_out = 'log_out';
+  static const train_journal = 'train_journal';
+  static const saved_food = 'saved_food';
+  static const describe_food = 'describe_food';
+  static const scan_food = 'scan_food';
+  static const change_lang = 'change_lang';
+  static const close = 'close';
+  static const todays_mesage = 'todays_mesage';
+  static const select_language = 'select_language';
+  static const lang_uz = 'lang_uz';
+  static const lang_en = 'lang_en';
+  static const lang_ru = 'lang_ru';
+  static const statistic = 'statistic';
+  static const January = 'January';
+  static const February = 'February';
+  static const March = 'March';
+  static const April = 'April';
+  static const May = 'May';
+  static const June = 'June';
+  static const July = 'July';
+  static const August = 'August';
+  static const September = 'September';
+  static const October = 'October';
+  static const November = 'November';
+  static const December = 'December';
+  static const date = 'date';
+  static const error_send_image = 'error_send_image';
+  static const not_found_food = 'not_found_food';
+  static const no_internet = 'no_internet';
+  static const no_internet_message = 'no_internet_message';
+
+}
